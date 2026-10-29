@@ -4,9 +4,9 @@ class Satelite:
 
     def __init__(self, nombre, numero_catalogo, latitud,longitud, altitud):
 
-        if not isinstance(nombre,str) or not nombre.strip() =="":
+        if not isinstance(nombre,str) or nombre.strip() =="":
             raise ValueError("El nombre no puede estar vacio")
-        if isinstance(numero_catalogo, int):
+        if not isinstance(numero_catalogo, int):
             raise ValueError("El numero de catalogo debe ser un numero entero")
         if not -90 <= latitud <= 90:
             raise ValueError("La latitud debe estar entre -90 y 90")
