@@ -16,7 +16,15 @@ def crear_catalogo(registros):
         nombre= registro ["OBJECT_NAME"]
         numero_catalogo = registro["NORAD_CAT_ID"]
 
-        satelite = Satelite(nombre, numero_catalogo, latitud, longitud, altitud)
+        # satelite = Satelite(nombre, numero_catalogo, latitud, longitud, altitud)
+        # satelites.append(satelite)
+        try:
+            satelite = Satelite(nombre, numero_catalogo, latitud, longitud, altitud)
+        except ValueError:
+            # Registro con datos invalidos (por ejemplo, un satelite con altitud menor a 100 km).
+            # No lo incluimos en el catalogo y seguimos con el siguiente.
+            continue
+
         satelites.append(satelite)
 
     return satelites
@@ -32,7 +40,7 @@ def resumir_por_orbita(satelites):
         altitudes_por_tipo[tipo].append(satelite.altitud)
 
     resumen = {}
-    for tipo, altitudes in altitudes_por_tipo():
+    for tipo, altitudes in altitudes_por_tipo.items():
         cantidad = len(altitudes)
         resumen[tipo] = {
             "cantidad": cantidad,
