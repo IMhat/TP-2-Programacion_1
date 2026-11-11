@@ -1,5 +1,4 @@
 
-
 class Satelite:
 
     def __init__(self, nombre, numero_catalogo, latitud,longitud, altitud):
@@ -14,12 +13,16 @@ class Satelite:
             raise ValueError("la longitud debe estar entre -180 y 180")
         if altitud < 100:
             raise ValueError("La altitud debe ser de al menos 100km")
+       # se coloco en exposicion
+        if not self.altitud_valida(altitud): 
+            raise ValueError("La altitud debe ser de al menos 100km")
         
         self.nombre = nombre
         self.numero_catalogo = numero_catalogo
         self.latitud = latitud
         self.longitud = longitud
         self.altitud = altitud
+
 
     def tipo_orbita(self):
         if self.altitud < 2000:
@@ -29,6 +32,10 @@ class Satelite:
         if self.altitud <= 37000:
             return "GEO"
         return "HEO"
+    # se coloco en exposicion
+    def altitud_valida(self, altitud):
+        return altitud >= 100
+
 
     def descripcion(self):
         return (f"{self.nombre} - {self.numero_catalogo} - {self.tipo_orbita()} - {self.altitud} km")

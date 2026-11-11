@@ -21,6 +21,11 @@ def test_guarda_los_datos():
 def test_nombre_vacio_es_invalido():
     with pytest.raises(ValueError):
         Satelite("",1,0,0,500)
+        
+# se coloco en exposicion
+def test_altura_es_invalido():
+    with pytest.raises(ValueError):
+        Satelite("A",1,0,0,50)
 
 def test_nombre_solo_espacios_es_invalido():
     with pytest.raises(ValueError):
