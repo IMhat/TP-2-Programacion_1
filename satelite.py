@@ -16,7 +16,7 @@ class Satelite:
             raise ValueError("La altitud debe ser de al menos 100km")
         
         self.nombre = nombre
-        self.numero_catalogo= numero_catalogo
+        self.numero_catalogo = numero_catalogo
         self.latitud = latitud
         self.longitud = longitud
         self.altitud = altitud

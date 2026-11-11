@@ -17,6 +17,11 @@ source .venv/bin/activate      # En Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+## Testing
+Testing automatizado, con covertura en % de modulos satelite.py y catalogo.py
+```
+ pytest --cov=satelite --cov=catalogo --cov-report=term-missing
+```
 ## Consultas
 
 Resumen por tipo de órbita (cantidad y altitud mínima, máxima y promedio):

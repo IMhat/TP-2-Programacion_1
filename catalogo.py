@@ -51,11 +51,11 @@ def resumir_por_orbita(satelites):
 
     return resumen
 
-def satelites_en_zona(satelites, longitud_min, longitud_max, latitud_min, latitud_max):
+def satelites_en_zona(satelites, longitud_min, latitud_min, longitud_max, latitud_max):
     en_la_zona = []
 
     for satelite in satelites:
-        if satelite.esta_en_zona(longitud_min, latitud_min, longitud_max,  latitud_max):
+        if satelite.esta_en_zona(longitud_min, latitud_min, longitud_max, latitud_max):
             en_la_zona.append(satelite)
 
     return en_la_zona
